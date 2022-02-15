@@ -2,14 +2,14 @@
 
 ### Description
 
-This library utilizes the api provided by the [Omnibolt Tracker service](https://github.com/omnilaboratory/obd/blob/master/tracker/router/router.go) in [OBD](https://github.com/omnilaboratory/obd).
+This library utilizes the api provided by the [Omni Tracker service](https://github.com/omnilaboratory/obd/blob/master/tracker/router/router.go) in [OBD](https://github.com/omnilaboratory/obd).
 
 ### Installation
-`yarn install https://github.com/synonymdev/omnibolt-tracker-api`
+`yarn install https://github.com/synonymdev/omni-tracker-api`
 
 or
 
-`npm i -S https://github.com/synonymdev/omnibolt-tracker-api`
+`npm i -S https://github.com/synonymdev/omni-tracker-api`
    
 ### Run Tests & Examples
 1. Clone omni-tracker-api:
@@ -26,7 +26,7 @@ or
 
 ### Usage
 ```
-import OmniTrackerApi from 'omnibolt-tracker-api';
+import OmniTrackerApi from 'omni-tracker-api';
 
 const omniApi = new OmniTrackerApi();
 
@@ -37,4 +37,4 @@ if (response.isErr()) {
 }
 console.log('omniGetAllBalancesForAddress Response:', response.value);
 ```
-- Additional examples can be found in the [`examples`](https://github.com/synonymdev/omnibolt-tracker-api/tree/master/example) directory.
+- Additional examples can be found in the [`examples`](https://github.com/synonymdev/omni-tracker-api/tree/master/example) directory.
