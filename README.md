@@ -37,4 +37,4 @@ if (response.isErr()) {
 }
 console.log('omniGetAllBalancesForAddress Response:', response.value);
 ```
-- Additional examples can be found in the [`examples`](https://github.com/synonymdev/omnibolt-tracker-api/tree/main/example) directory.
+- Additional examples can be found in the [`examples`](https://github.com/synonymdev/omnibolt-tracker-api/tree/master/example) directory.
