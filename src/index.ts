@@ -1,6 +1,13 @@
-import { err } from './utils/result';
+import { err, Result } from './utils/result';
 import { defaultTrackerUrl } from './utils/constants';
 import * as api from './api';
+import {
+	IOmniDecodeTransactionResponse,
+	ListReceivedByAddressData,
+	TGetOmniBalanceResponse,
+	TGetUserStateResponse,
+	TOmniGetAllBalancesForAddressResponse
+} from './types';
 
 export default class OmniTrackerApi {
 	private readonly url: string;
@@ -9,7 +16,7 @@ export default class OmniTrackerApi {
 		this.url = `${url}/api`;
 	}
 
-	async omniGetAllBalancesForAddress(address) {
+	async omniGetAllBalancesForAddress(address): Promise<Result<TOmniGetAllBalancesForAddressResponse>> {
 		try {
 			return await api.omniGetAllBalancesForAddress(address, this.url);
 		} catch (e) {
@@ -17,7 +24,7 @@ export default class OmniTrackerApi {
 		}
 	}
 
-	async getOmniBalance(address: string, propertyId: string | number) {
+	async getOmniBalance(address: string, propertyId: string | number): Promise<Result<TGetOmniBalanceResponse>> {
 		try {
 			return await api.getOmniBalance(address, propertyId,this.url);
 		} catch (e) {
@@ -25,7 +32,7 @@ export default class OmniTrackerApi {
 		}
 	}
 
-	async listReceivedByAddress(address: string) {
+	async listReceivedByAddress(address: string): Promise<Result<ListReceivedByAddressData[]>> {
 		try {
 			return await api.listReceivedByAddress(address,this.url);
 		} catch (e) {
@@ -33,7 +40,7 @@ export default class OmniTrackerApi {
 		}
 	}
 
-	async getBalanceByAddress(address: string) {
+	async getBalanceByAddress(address: string): Promise<Result<number>> {
 		try {
 			return await api.getBalanceByAddress(address,this.url);
 		} catch (e) {
@@ -41,7 +48,7 @@ export default class OmniTrackerApi {
 		}
 	}
 
-	async getUserState(userId: string, nodeId: string) {
+	async getUserState(userId: string, nodeId: string): Promise<Result<TGetUserStateResponse>> {
 		try {
 			return await api.getUserState(userId, nodeId,this.url);
 		} catch (e) {
@@ -49,7 +56,7 @@ export default class OmniTrackerApi {
 		}
 	}
 
-	async omniDecodeTransaction(txHex: string) {
+	async omniDecodeTransaction(txHex: string): Promise<Result<IOmniDecodeTransactionResponse>> {
 		try {
 			return await api.omniDecodeTransaction(txHex,this.url);
 		} catch (e) {
