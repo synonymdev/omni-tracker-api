@@ -17,7 +17,7 @@ const fetch = require('node-fetch');
  * @param {string} [url]
  * @return {Promise<Result<TOmniGetAllBalancesForAddressResponse>>}
  */
-export const omniGetAllBalancesForAddress = async (address, url = defaultTrackerUrl): Promise<Result<TOmniGetAllBalancesForAddressResponse>> => {
+export const omniGetAllBalancesForAddress = async (address: string, url = defaultTrackerUrl): Promise<Result<TOmniGetAllBalancesForAddressResponse>> => {
 	try {
 		const response = await fetch(`${url}/rpc/omniGetAllBalancesForAddress?address=${address}`);
 		return parseResponse<TOmniGetAllBalancesForAddressResponse>(response);
