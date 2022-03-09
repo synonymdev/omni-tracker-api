@@ -4,11 +4,10 @@ exports.parseResponse = void 0;
 const result_1 = require("./result");
 exports.parseResponse = async (response) => {
     try {
-        const responseJson = await response.json();
-        if (!(responseJson === null || responseJson === void 0 ? void 0 : responseJson.data)) {
-            return result_1.err(responseJson.msg);
+        if (!(response === null || response === void 0 ? void 0 : response.data)) {
+            return result_1.err(response.msg);
         }
-        const data = JSON.parse(responseJson.data);
+        const data = JSON.parse(response.data.data);
         return result_1.ok(data);
     }
     catch (e) {
